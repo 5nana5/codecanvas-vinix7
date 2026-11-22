@@ -13,7 +13,7 @@ class EnglishSeeder extends Seeder
     {
         $cat = Category::updateOrCreate(
             ['slug' => 'english'],
-            ['name' => 'English', 'icon' => '🌐', 'description' => 'Bahasa Inggris profesional untuk dokumentasi teknis, komunikasi tim, dan wawancara.']
+            ['name' => 'English', 'icon' => 'globe-alt', 'description' => 'Bahasa Inggris profesional untuk dokumentasi teknis, komunikasi tim, dan wawancara.']
         );
 
         $quiz = Quiz::updateOrCreate(
@@ -21,7 +21,7 @@ class EnglishSeeder extends Seeder
             [
                 'category_id' => $cat->id,
                 'title' => 'English for Tech & Career Readiness',
-                'level' => 'Beginner',
+                'level' => 'Pemula',
                 'duration_minutes' => 5,
                 'description' => 'Asah pemahaman dokumentasi teknis berbahasa Inggris dan komunikasi profesional.',
             ]

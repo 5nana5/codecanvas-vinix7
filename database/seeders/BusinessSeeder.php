@@ -13,7 +13,7 @@ class BusinessSeeder extends Seeder
     {
         $cat = Category::updateOrCreate(
             ['slug' => 'business'],
-            ['name' => 'Business', 'icon' => '💼', 'description' => 'Studi kasus analisis proses bisnis, manajemen proyek, dan strategi operasional.']
+            ['name' => 'Business', 'icon' => 'briefcase', 'description' => 'Studi kasus analisis proses bisnis, manajemen proyek, dan strategi operasional.']
         );
 
         $quiz = Quiz::updateOrCreate(
@@ -21,7 +21,7 @@ class BusinessSeeder extends Seeder
             [
                 'category_id' => $cat->id,
                 'title' => 'Business Analyst & Agile Sprint',
-                'level' => 'Beginner',
+                'level' => 'Pemula',
                 'duration_minutes' => 5,
                 'description' => 'Evaluasi pemahaman MVP, ruang lingkup proyek, dan pengambilan keputusan bisnis.',
             ]

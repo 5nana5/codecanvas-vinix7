@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Question;
 use App\Models\Quiz;
 use App\Models\QuizAttempt;
+use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class DashboardController extends Controller
@@ -23,10 +24,23 @@ class DashboardController extends Controller
 
         $recentAttempts = QuizAttempt::with('quiz.category')
             ->latest()
-            ->take(15)
+            ->take(20)
             ->get();
 
         return view('dashboard', compact('stats', 'recentAttempts'));
+    }
+
+    public function bulkDestroyAttempts(Request $request)
+    {
+        $ids = $request->input('ids', []);
+
+        if (empty($ids)) {
+            return back()->with('error', 'Pilih setidaknya satu peserta terlebih dahulu.');
+        }
+
+        $deleted = QuizAttempt::whereIn('id', $ids)->delete();
+
+        return back()->with('success', "Data hasil {$deleted} peserta berhasil dihapus.");
     }
 
     public function exportCsv(): StreamedResponse
@@ -36,8 +50,8 @@ class DashboardController extends Controller
 
         return response()->streamDownload(function () use ($attempts) {
             $handle = fopen('php://output', 'w');
-            // Header CSV (kompatibel langsung dengan Excel)
-            fputcsv($handle, ['No', 'Nama Peserta', 'Perguruan Tinggi', 'Kategori', 'Judul Kuis', 'Benar', 'Total Soal', 'Skor', 'Verdict Kesiapan', 'Waktu Selesai']);
+            fwrite($handle, "sep=,\n");
+            fputcsv($handle, ['No', 'Nama Peserta', 'Asal Kampus / Instansi', 'Kategori', 'Topik Kuis', 'Benar', 'Total Soal', 'Skor', 'Status Kesiapan', 'Waktu Selesai']);
 
             foreach ($attempts as $index => $row) {
                 fputcsv($handle, [

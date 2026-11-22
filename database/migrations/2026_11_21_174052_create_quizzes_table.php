@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->enum('level', ['Beginner', 'Intermediate', 'Advanced'])->default('Beginner');
+            $table->enum('level', ['Pemula', 'Menengah', 'Lanjutan'])->default('Pemula');
             $table->integer('duration_minutes')->default(5);
             $table->text('description')->nullable();
             $table->timestamps();

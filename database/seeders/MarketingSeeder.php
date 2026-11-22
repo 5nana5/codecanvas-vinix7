@@ -13,7 +13,7 @@ class MarketingSeeder extends Seeder
     {
         $cat = Category::updateOrCreate(
             ['slug' => 'marketing'],
-            ['name' => 'Marketing', 'icon' => '📣', 'description' => 'Strategi digital marketing, metrik kampanye, dan optimasi konversi.']
+            ['name' => 'Marketing', 'icon' => 'megaphone', 'description' => 'Strategi digital marketing, metrik kampanye, dan optimasi konversi.']
         );
 
         $quiz = Quiz::updateOrCreate(
@@ -21,7 +21,7 @@ class MarketingSeeder extends Seeder
             [
                 'category_id' => $cat->id,
                 'title' => 'Digital Marketing & Growth Funnel',
-                'level' => 'Beginner',
+                'level' => 'Pemula',
                 'duration_minutes' => 5,
                 'description' => 'Uji kemampuan menghitung metrik iklan digital dan strategi akuisisi peserta.',
             ]

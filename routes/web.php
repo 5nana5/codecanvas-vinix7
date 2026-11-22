@@ -6,15 +6,16 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuizController;
 use Illuminate\Support\Facades\Route;
 
-// Halaman Publik & Peserta (Tanpa Wajib Login)
+// Halaman peserta
 Route::get('/', [QuizController::class, 'index'])->name('home');
 Route::get('/quiz/{slug}', [QuizController::class, 'show'])->name('quiz.show');
 Route::post('/quiz/{slug}/submit', [QuizController::class, 'submit'])->name('quiz.submit');
 
-// Halaman Panel Admin / Mentor VINIX7 (Wajib Login)
+// Halaman mentor
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/export-csv', [DashboardController::class, 'exportCsv'])->name('dashboard.export');
+    Route::delete('/dashboard/attempts/bulk-delete', [DashboardController::class, 'bulkDestroyAttempts'])->name('dashboard.attempts.bulkDestroy');
 
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/quizzes', [QuizManageController::class, 'index'])->name('quizzes.index');
@@ -24,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('/quizzes/template-csv', [QuizManageController::class, 'downloadTemplate'])->name('quizzes.template');
         Route::post('/quizzes/{quiz}/import-csv', [QuizManageController::class, 'importCsv'])->name('quizzes.import');
+        Route::get('/quizzes/{quiz}/import-errors', [QuizManageController::class, 'downloadImportErrors'])->name('quizzes.import.errors');
 
         Route::get('/quizzes/{quiz}/questions', [QuizManageController::class, 'questions'])->name('quizzes.questions');
         Route::post('/quizzes/{quiz}/questions', [QuizManageController::class, 'storeQuestion'])->name('quizzes.questions.store');

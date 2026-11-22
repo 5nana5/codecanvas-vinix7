@@ -45,26 +45,8 @@ class QuizController extends Controller
         $review = [];
 
         foreach ($quiz->questions as $question) {
-            $userAnswer = trim((string) ($validated['answers'][$question->id] ?? ''));
-            $correctAnswer = trim((string) $question->correct_answer);
-            $isCorrect = false;
-
-            if ($question->question_type === 'multiple_choice') {
-                $isCorrect = strtolower($userAnswer) === strtolower($correctAnswer);
-            } elseif ($question->question_type === 'short_answer') {
-                $isCorrect = strtolower($userAnswer) === strtolower($correctAnswer);
-            } elseif ($question->question_type === 'essay') {
-                // Cocokkan berdasarkan kata kunci (dipisah koma di correct_answer) atau minimal 15 karakter jika tidak ada kata kunci spesifik
-                $keywords = array_filter(array_map('trim', explode(',', strtolower($correctAnswer))));
-                $lowerUser = strtolower($userAnswer);
-                $matched = 0;
-                foreach ($keywords as $kw) {
-                    if (str_contains($lowerUser, $kw)) {
-                        $matched++;
-                    }
-                }
-                $isCorrect = count($keywords) > 0 ? ($matched >= 1) : (strlen($userAnswer) >= 15);
-            }
+            $userAnswer = strtolower(trim((string) ($validated['answers'][$question->id] ?? '')));
+            $isCorrect = $userAnswer === strtolower(trim((string) $question->correct_answer));
 
             if ($isCorrect) {
                 $correctCount++;

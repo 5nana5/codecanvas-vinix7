@@ -6,11 +6,11 @@
 <div class="space-y-6">
     <div class="flex items-center justify-between">
         <div>
-            <a href="{{ route('dashboard') }}" class="text-xs text-blue-600 dark:text-amber-400 hover:underline">← Kembali ke Dashboard</a>
-            <h1 class="text-2xl font-extrabold mt-1">Manajemen Paket Kuis</h1>
+            <a href="{{ route('dashboard') }}" class="text-xs text-blue-600 dark:text-amber-400 hover:underline"><svg class="inline-block w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" /></svg>Kembali ke dashboard</a>
+            <h1 class="text-2xl font-extrabold mt-1">Kelola paket kuis</h1>
         </div>
         <a href="{{ route('admin.quizzes.create') }}" class="px-4 py-2.5 rounded-lg bg-blue-600 dark:bg-amber-400 text-white dark:text-slate-950 font-bold text-sm">
-            + Buat Kuis Baru
+            + Buat kuis baru
         </a>
     </div>
 
@@ -34,7 +34,7 @@
             <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
                 @foreach($quizzes as $quiz)
                     <tr>
-                        <td class="px-5 py-3.5 font-semibold">{{ $quiz->category->icon }} {{ $quiz->category->name }}</td>
+                        <td class="px-5 py-3.5 font-semibold"><x-category-icon :name="$quiz->category->icon" /> {{ $quiz->category->name }}</td>
                         <td class="px-5 py-3.5 font-bold">{{ $quiz->title }}</td>
                         <td class="px-5 py-3.5">{{ $quiz->level }}</td>
                         <td class="px-5 py-3.5">{{ $quiz->questions_count }} Soal</td>

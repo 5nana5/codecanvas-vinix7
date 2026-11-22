@@ -13,7 +13,7 @@ class TechSeeder extends Seeder
     {
         $cat = Category::updateOrCreate(
             ['slug' => 'tech'],
-            ['name' => 'Tech', 'icon' => '💻', 'description' => 'Eksplorasi pemahaman potongan kode (HTML, CSS, JS, SQL) & rekayasa web.']
+            ['name' => 'Tech', 'icon' => 'code-bracket', 'description' => 'Eksplorasi pemahaman potongan kode (HTML, CSS, JS, SQL) & rekayasa web.']
         );
 
         $quiz = Quiz::updateOrCreate(
@@ -21,7 +21,7 @@ class TechSeeder extends Seeder
             [
                 'category_id' => $cat->id,
                 'title' => 'Web Dev & Code-Snippet Readiness',
-                'level' => 'Beginner',
+                'level' => 'Pemula',
                 'duration_minutes' => 5,
                 'description' => 'Uji ketelitian membaca logika potongan kode web dasar.',
             ]

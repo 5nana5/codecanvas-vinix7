@@ -13,7 +13,7 @@ class FinanceSeeder extends Seeder
     {
         $cat = Category::updateOrCreate(
             ['slug' => 'finance'],
-            ['name' => 'Finance', 'icon' => '📊', 'description' => 'Dasar analisis keuangan, unit economics startup, dan pengelolaan anggaran.']
+            ['name' => 'Finance', 'icon' => 'chart-bar', 'description' => 'Dasar analisis keuangan, unit economics startup, dan pengelolaan anggaran.']
         );
 
         $quiz = Quiz::updateOrCreate(
@@ -21,7 +21,7 @@ class FinanceSeeder extends Seeder
             [
                 'category_id' => $cat->id,
                 'title' => 'Startup Finance & Unit Economics',
-                'level' => 'Beginner',
+                'level' => 'Pemula',
                 'duration_minutes' => 5,
                 'description' => 'Pahami kesehatan finansial produk digital dan analisis rasio dasar.',
             ]

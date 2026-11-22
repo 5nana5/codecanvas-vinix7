@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="CodeCanvas - Sistem Web Micro-Quiz Interaktif Eksplorasi Pemahaman Kode PT Vinix Seven Aurum">
-    <title>@yield('title', 'CodeCanvas — Micro-Quiz Pemahaman Kode & Karier VINIX7')</title>
+    <meta name="description" content="CodeCanvas - platform micro-kuis interaktif untuk menguji pemahaman kode dan kesiapan karier PT Vinix Seven Aurum">
+    <title>@yield('title', 'CodeCanvas — Micro-kuis pemahaman kode dan karier VINIX7')</title>
 
     <script>
         if (localStorage.getItem('theme') === 'light') {
@@ -34,14 +34,23 @@
 
             <div class="flex items-center gap-3">
                 @auth
-                    <a href="{{ route('dashboard') }}" class="text-sm font-medium px-3 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition">
-                        Panel Admin
-                    </a>
+                    @if(request()->routeIs('dashboard*', 'admin.*'))
+                        <a href="{{ route('dashboard') }}" class="text-sm font-medium px-3 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition">
+                            Panel Admin
+                        </a>
+                    @endif
                 @endauth
 
                 <button id="theme-toggle" type="button" aria-label="Ganti Mode Gelap atau Terang"
                     class="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-semibold text-slate-800 dark:text-amber-300 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-                    <span id="theme-icon" aria-hidden="true">☀️</span>
+                    <span id="theme-icon" aria-hidden="true">
+                        <svg class="w-4 h-4 hidden" data-theme-icon="sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-2.227-1.591 1.591M5.25 12H3m2.227-4.773L6.818 8.82m8.596 3.18a3.414 3.414 0 1 1-6.828 0 3.414 3.414 0 0 1 6.828 0Z" />
+                        </svg>
+                        <svg class="w-4 h-4" data-theme-icon="moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75a9.75 9.75 0 0 1-9.75-9.75c0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25 9.75 9.75 0 0 0 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                        </svg>
+                    </span>
                     <span id="theme-label">Mode Terang</span>
                 </button>
             </div>
@@ -53,7 +62,7 @@
     </main>
 
     <footer class="border-t border-slate-200 dark:border-slate-800 py-6 text-center text-sm text-slate-600 dark:text-slate-400">
-        <p>&copy; {{ date('Y') }} CodeCanvas — Divisi Web Development PT Vinix Seven Aurum (VINIX7).</p>
+        <p>&copy; {{ date('Y') }} CodeCanvas by VINIX7 • PT Vinix Seven Aurum</p>
     </footer>
 
     <script>
@@ -63,7 +72,8 @@
 
         function syncThemeUI() {
             const isDark = document.documentElement.classList.contains('dark');
-            themeIcon.textContent = isDark ? '☀️' : '🌙';
+            themeIcon.querySelector('[data-theme-icon="sun"]').classList.toggle('hidden', !isDark);
+            themeIcon.querySelector('[data-theme-icon="moon"]').classList.toggle('hidden', isDark);
             themeLabel.textContent = isDark ? 'Mode Terang' : 'Mode Gelap';
             themeBtn.setAttribute('aria-label', isDark ? 'Ubah ke Mode Terang' : 'Ubah ke Mode Gelap');
         }
