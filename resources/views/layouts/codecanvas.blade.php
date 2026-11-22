@@ -57,7 +57,13 @@
     </main>
 
     <footer class="border-t border-slate-200 dark:border-slate-800 py-6 text-center text-sm text-slate-600 dark:text-slate-400">
-        <p>&copy; {{ date('Y') }} CodeCanvas by VINIX7 • PT Vinix Seven Aurum</p>
+        <p>
+            &copy; {{ date('Y') }} CodeCanvas by VINIX7 • PT Vinix Seven Aurum
+            <span class="mx-2">•</span>
+            <a href="{{ route('login') }}" class="text-xs text-slate-400 hover:text-blue-600 dark:hover:text-amber-400 underline">
+                Portal Mentor
+            </a>
+        </p>
     </footer>
 
     <script>
