@@ -28,6 +28,7 @@
 
 
             <div class="flex items-center gap-3">
+                {{--
                 @auth
                     @if(request()->routeIs('dashboard*', 'admin.*'))
                         <a href="{{ route('dashboard') }}" class="text-sm font-medium px-3 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition">
@@ -35,6 +36,7 @@
                         </a>
                     @endif
                 @endauth
+                --}}
 
                 <button id="theme-toggle" type="button" aria-label="Ganti Mode Gelap atau Terang"
                     class="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-semibold text-slate-800 dark:text-amber-300 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
