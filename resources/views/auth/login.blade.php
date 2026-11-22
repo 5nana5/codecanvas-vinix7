@@ -122,10 +122,11 @@
                             class="w-full py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-lg shadow-blue-600/20 transition focus:outline-none focus:ring-2 focus:ring-blue-500">
                             Masuk <svg class="inline-block w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
                         </button>
+                        {{--
                         <p class="mt-5 text-center text-xs text-slate-600 dark:text-slate-400">
                             Belum punya akun? <a href="{{ route('register') }}" class="font-bold text-blue-600 dark:text-amber-400 hover:underline">Daftar di sini</a>
                         </p>
-
+                        --}}
                     </form>
                 </div>
             </div>
