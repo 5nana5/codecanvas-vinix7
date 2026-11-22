@@ -59,7 +59,7 @@
    Akses aplikasi pada `http://127.0.0.1:8000`.
 
 ### Akun Demo Mentor Default
-* **Email:** `mentor@vinix7.id`
+* **Email:** `admin@vinix7.id`
 * **Kata Sandi:** `password`
 
 ---
