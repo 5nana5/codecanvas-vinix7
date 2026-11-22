@@ -6,7 +6,7 @@
 
 **CodeCanvas** adalah platform evaluasi kompetensi mandiri berbasis web (*micro-quiz*) yang dirancang untuk peserta pelatihan pada **PT Vinix Seven Aurum (VINIX7)**. Aplikasi ini memfasilitasi evaluasi singkat lintas lima kategori kompetensi (**Tech, Business, Marketing, Finance, dan English**) dengan sistem penilaian otomatis serta terintegrasi dengan portal pembelajaran utama **VINIX7 LMS**.
 
-**Live Demo:** [Link Aplikasi]
+**Live Demo:** [https://railway.app](https://railway.app)
 
 ---
 
@@ -19,7 +19,7 @@
 * **Antarmuka Responsif & Mode Ganda:** Mendukung peralihan tema **Mode Terang (*Light Mode*)** dan **Mode Gelap (*Dark Mode*)**.
 
 ### 2. Panel Manajemen Mentor (Terautentikasi)
-* **Autentikasi Mentor:** Sistem pendaftaran dan masuk akun khusus tim mentor VINIX7.
+* **Autentikasi Mentor:** Sistem masuk akun khusus tim mentor internal VINIX7 (akses melalui tautan *Portal Mentor* pada bagian footer).
 * **Manajemen Paket Kuis & Bank Soal:** Tambah, kelola, dan hapus paket kuis beserta soal pilihan ganda.
 * **Impor & Ekspor Berkas CSV:** Unggah bank soal secara massal menggunakan templat CSV terstandar dengan validasi otomatis serta unduh rekap hasil evaluasi peserta dalam format CSV.
 * **Pengelolaan Riwayat:** Fitur penghapusan data hasil evaluasi secara satuan maupun massal.
