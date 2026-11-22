@@ -6,7 +6,7 @@
 
 **CodeCanvas** adalah platform evaluasi kompetensi mandiri berbasis web (*micro-quiz*) yang dirancang untuk peserta pelatihan pada **PT Vinix Seven Aurum (VINIX7)**. Aplikasi ini memfasilitasi evaluasi singkat lintas lima kategori kompetensi (**Tech, Business, Marketing, Finance, dan English**) dengan sistem penilaian otomatis serta terintegrasi dengan portal pembelajaran utama **VINIX7 LMS**.
 
-**Live Demo:** [https://railway.app](https://railway.app)
+**Live Demo:** [Buka Aplikasi CodeCanvas Live](https://codecanvas-vinix7-production.up.railway.app)
 
 ---
 
