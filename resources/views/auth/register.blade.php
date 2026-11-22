@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo-vinix7.png') }}">
     <title>Daftar Mentor — CodeCanvas VINIX7</title>
     <script>
         if (localStorage.getItem('theme') === 'light') {
@@ -18,12 +19,8 @@
         <!-- Branding -->
         <div class="hidden lg:flex flex-col justify-between bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 p-12 text-white">
             <div>
-                <a href="{{ route('home') }}" class="inline-flex items-center gap-3 bg-white px-4 py-2 rounded-lg shadow">
-                    @if(file_exists(public_path('images/Logo-VINIX7.png')))
-                        <img src="{{ asset('images/Logo-VINIX7.png') }}" alt="Logo VINIX7" class="h-7 w-auto">
-                    @else
-                        <span class="font-black text-xl tracking-tight text-blue-700">VINIX<span class="text-amber-500">7</span></span>
-                    @endif
+                <a href="{{ route('home') }}" class="inline-flex">
+                    <x-application-logo image-class="h-7 w-auto block object-contain" />
                 </a>
             </div>
 
@@ -51,7 +48,7 @@
             </div>
 
             <div class="text-xs text-blue-200">
-                &copy; {{ date('Y') }} PT Vinix Seven Aurum • Divisi Web Development
+                © {{ date('Y') }} CodeCanvas VINIX7. Hak cipta dilindungi.
             </div>
         </div>
 
@@ -134,9 +131,6 @@
                 </div>
             </div>
 
-            <p class="text-center text-xs text-slate-500">
-                &copy; {{ date('Y') }} CodeCanvas VINIX7. Hak cipta dilindungi.
-            </p>
         </div>
     </div>
 

@@ -37,9 +37,12 @@
     <section aria-labelledby="cta-vinix-heading" class="rounded-2xl border border-blue-500/40 bg-blue-700 dark:bg-slate-800 p-6 sm:p-8 text-white shadow-lg">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="space-y-2 text-center sm:text-left">
-                <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-400 text-slate-950">
-                    Tingkatkan perjalanan belajarmu
-                </span>
+                <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+                    <x-application-logo />
+                    <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-400 text-slate-950">
+                        Tingkatkan perjalanan belajarmu
+                    </span>
+                </div>
                 <h2 id="cta-vinix-heading" class="text-xl sm:text-2xl font-extrabold leading-snug">
                     Siap Mendalami Materi {{ $quiz->category->name }} Bersama Mentor Praktisi?
                 </h2>

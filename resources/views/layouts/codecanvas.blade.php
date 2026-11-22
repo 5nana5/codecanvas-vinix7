@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo-vinix7.png') }}">
     <meta name="description" content="CodeCanvas - platform micro-kuis interaktif untuk menguji pemahaman kode dan kesiapan karier PT Vinix Seven Aurum">
     <title>@yield('title', 'CodeCanvas — Micro-kuis pemahaman kode dan karier VINIX7')</title>
 
@@ -20,13 +21,7 @@
     <header class="sticky top-0 z-30 border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-[#0B1120]/90 backdrop-blur">
         <nav aria-label="Navigasi Utama" class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             <a href="{{ route('home') }}" class="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
-                @if(file_exists(public_path('images/Logo-VINIX7.png')))
-                    <img src="{{ asset('images/Logo-VINIX7.png') }}" alt="Logo VINIX7" class="h-8 w-auto object-contain">
-                @else
-                    <span class="inline-flex items-center px-2.5 py-1 rounded-md bg-blue-600 text-white font-black tracking-tight text-base shadow">
-                        VINIX<span class="text-amber-400">7</span>
-                    </span>
-                @endif
+                <x-application-logo />
                 <span class="text-slate-400">|</span>
                 <span class="font-bold text-blue-600 dark:text-amber-400 text-lg">CodeCanvas</span>
             </a>
